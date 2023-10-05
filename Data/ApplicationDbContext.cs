@@ -22,4 +22,10 @@ public class ApplicationDbContext : IdentityDbContext
 
 
     public DbSet<APPR6312_POE.Models.AddGoods> AddGoods { get; set; } = default!;
+
+
+    public DbSet<APPR6312_POE.Models.DisasterMoney> DisasterMoney { get; set; } = default!;
+
+
+    public DbSet<APPR6312_POE.Models.DisasterGoods> DisasterGoods { get; set; } = default!;
 }
