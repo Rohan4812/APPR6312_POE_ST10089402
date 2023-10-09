@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,19 +37,27 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Donations">Donate <i class="bi bi-currency-dollar"></i></a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <!-- Added 'dropdown' class here -->
-                            <a class="nav-link dropdown-toggle" href="#" id="donationsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Admin
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="donationsDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="MonetaryDonation" asp-action="Index">Monetary Data</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="GoodsDonations" asp-action="Index">Goods Data</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="DisasterDatas" asp-action="Index">Distaster Data</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="DisasterMoney" asp-action="Index">Distaster Money</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="DisasterGoods" asp-action="Index">Distaster Goods</a>
-                            </div>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var userManager = Context.RequestServices.GetService<UserManager<IdentityUser>>();
+                            var userRoles = userManager.GetRolesAsync(await userManager.GetUserAsync(User)).Result;
+
+                            if (userRoles.Contains("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                                        <a class="dropdown-item" asp-area="" asp-controller="MonetaryDonation" asp-action="Index">Monetary Data</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="GoodsDonations" asp-action="Index">Goods Data</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="DisasterDatas" asp-action="Index">Disaster Data</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="DisasterMoney" asp-action="Index">Disaster Money</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="DisasterGoods" asp-action="Index">Disaster Goods</a>
+                                    </div>
+                                </li>
+                            }
+                        }
                         @* <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="AppRoles" asp-action="Index">Roles</a>
                         </li> *@
