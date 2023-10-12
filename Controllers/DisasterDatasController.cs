@@ -21,6 +21,7 @@ namespace APPR6312_POE.Controllers
             _context = context;
         }
         [Authorize(Roles = "Admin")]
+
         // GET: DisasterDatas
         public async Task<IActionResult> Index()
         {
@@ -46,7 +47,7 @@ namespace APPR6312_POE.Controllers
 
             return View(disasterData);
         }
-
+        [Authorize]
         // GET: DisasterDatas/Create
         public IActionResult Create()
         {

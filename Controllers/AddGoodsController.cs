@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using APPR6312_POE.Data;
 using APPR6312_POE.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APPR6312_POE.Controllers
 {
@@ -44,6 +45,7 @@ namespace APPR6312_POE.Controllers
 
             return View(addGoods);
         }
+        [Authorize]
 
         // GET: AddGoods/Create
         public IActionResult Create()
