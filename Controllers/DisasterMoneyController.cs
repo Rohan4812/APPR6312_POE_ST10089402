@@ -46,6 +46,7 @@ namespace APPR6312_POE.Controllers
 
             return View(disasterMoney);
         }
+        [Authorize]
 
         // GET: DisasterMoney/Create
         public IActionResult Create()

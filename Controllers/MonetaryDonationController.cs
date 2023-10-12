@@ -46,6 +46,7 @@ namespace APPR6312_POE.Controllers
 
             return View(monetaryDon);
         }
+        [Authorize]
 
         // GET: MonetaryDonation/Create
         public IActionResult Create()

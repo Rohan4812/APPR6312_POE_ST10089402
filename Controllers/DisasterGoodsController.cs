@@ -46,6 +46,7 @@ namespace APPR6312_POE.Controllers
 
             return View(disasterGoods);
         }
+        [Authorize]
 
         // GET: DisasterGoods/Create
         public IActionResult Create()
