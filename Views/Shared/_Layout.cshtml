@@ -13,7 +13,14 @@
         body {
             background-color: orange;
         }
-        
+
+        .nav-link.dropdown-toggle {
+            
+            color: white; /* Change the text color to white */
+        }
+        .nav-link{
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +43,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Donations">Donate <i class="bi bi-currency-dollar"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Total Donations
+                            </a>
+                            <div class="dropdown-menu" >
+                                <a class="nav-link" asp-area="" asp-controller="MonetaryDonation" asp-action="TotalMonetaryDonations">Total Monetary Donations </a>
+                                <a class="nav-link" asp-area="" asp-controller="GoodsDonations" asp-action="TotalGoods">Total Goods Donations </a>
+                            </div>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {

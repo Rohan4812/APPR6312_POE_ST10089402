@@ -1,0 +1,15 @@
+﻿@model IEnumerable<APPR6312_POE.Models.GoodsDonations>
+
+@{
+    ViewData["Title"] = "TotalGoods";
+}
+
+
+<div class="text-center">
+    <h1>Total Goods Donations <i class="bi bi-currency-dollar"></i></h1>
+    <br />
+    <br />
+    <h2>Total: @Model.Sum(item => item.NumOfItems)</h2>
+</div>
+
+

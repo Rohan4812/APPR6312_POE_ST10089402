@@ -53,6 +53,13 @@ namespace APPR6312_POE.Controllers
             return View();
         }
 
+        public async Task<IActionResult> TotalGoods()
+        {
+            return _context.Goods != null ?
+                        View(await _context.Goods.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Goods'  is null.");
+        }
+
         // POST: GoodsDonations/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
