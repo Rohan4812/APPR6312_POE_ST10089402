@@ -51,6 +51,10 @@
                             <div class="dropdown-menu" >
                                 <a class="nav-link" asp-area="" asp-controller="MonetaryDonation" asp-action="TotalMonetaryDonations">Total Monetary Donations </a>
                                 <a class="nav-link" asp-area="" asp-controller="GoodsDonations" asp-action="TotalGoods">Total Goods Donations </a>
+                                <a class="nav-link" asp-area="" asp-controller="DisasterMoney" asp-action="TotalDisasterMoney">Total Disaster Money Donations </a>
+                                <a class="nav-link" asp-area="" asp-controller="DisasterGoods" asp-action="TotalDisasterGoods">Total Disaster Goods Donations </a>
+
+
                             </div>
                         </li>
                         @if (User.Identity.IsAuthenticated)
