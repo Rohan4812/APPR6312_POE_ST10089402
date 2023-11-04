@@ -1,0 +1,48 @@
+﻿@model IEnumerable<APPR6312_POE.Models.DisasterGoods>
+
+@{
+    ViewData["Title"] = "TotalDisasterGoods";
+}
+
+<h1>Total Donations To Active Disasters</h1>
+<br />
+@{
+    // Group the items by Disaster and calculate the total amount for each disaster
+    var disasterTotals = Model.GroupBy(item => item.Disaster)
+                             .Select(group => new
+                             {
+                                 Disaster = group.Key,
+                                 TotalAmount = group.Sum(item => item.NumOfItems)
+                             })
+                             .ToList();
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Disaster
+            </th>
+            <th>
+                Total Goods
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var disasterTotal in disasterTotals)
+        {
+            <tr>
+                <td>
+                    @disasterTotal.Disaster
+                </td>
+                <td>
+                    <p>@disasterTotal.TotalAmount</p>
+                </td>
+                <td>
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

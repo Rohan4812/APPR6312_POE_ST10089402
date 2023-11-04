@@ -66,6 +66,13 @@ namespace APPR6312_POE.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> TotalDisasterMoney()
+        {
+            return _context.DisasterMoney != null ?
+                        View(await _context.DisasterMoney.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DisasterMoney'  is null.");
+        }
+
         // POST: DisasterMoney/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
