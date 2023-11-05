@@ -4,7 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #e5d7e4; /* Light purple background color */
+        border-radius: 10px; /* Rounded corners */
+        overflow: hidden; /* Hide overflow content for rounded corners */
+    }
+
+        .table th, .table td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background-color: #d9edf7;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+        }
+</style>
+
+
+<h1>Disaster Goods</h1>
 
 
 <table class="table">
